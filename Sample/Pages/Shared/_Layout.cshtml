@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+    </environment>
+
+</head>
+
+<body>
+    <a class="btn btn-lg btn-primary" href="~/Pages/Sign.cshtml">Регистрация</a>
+
+    @await Html.PartialAsync("_Header", Context.Session.GetString("SampleSession"))
+
+
+    <div class="container body-content">
+        <main>
+
+            <environment include="Testing,Staging">
+                <div class="warning">You are currently on a testing environment</div>
+            </environment>
+
+            <div flashes></div>
+            @RenderBody()
+        </main>
+    </div>
+
+    @await Html.PartialAsync("_Footer")
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>
