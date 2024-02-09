@@ -1,0 +1,38 @@
+﻿@page
+@model SampleApp.RazorPage.Pages.UsersModel
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h2>Пользователи</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-primary" asp-page="Profile" asp-route-id="@user.Id">@user.Name</a>
+                </td>
+
+                <td>
+
+                    @if (Model.User.IsAdmin)
+                    {
+                        <a class="btn btn-danger" asp-page="Users" asp-page-handler="Remove" asp-route-id="@user.Id">Удалить</a>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

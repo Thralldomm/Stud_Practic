@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[1.70.0, )"
             },
+            "Core.Flash": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.1, )"
